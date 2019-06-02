@@ -3,21 +3,13 @@
 
 from conans import python_requires
 
-base = python_requires("boost_base/1.69.0@bincrafters/testing")
+base = python_requires("boost_base/2.0.0@bincrafters/testing")
 
 
 class BoostParameterPythonConan(base.BoostBaseConan):
     name = "boost_parameter_python"
-    version = "1.69.0"
-    url = "https://github.com/bincrafters/conan-boost_parameter_python"
-    lib_short_names = ["parameter_python"]
-    header_only_libs = ["parameter_python"]
-    b2_requires = [
-        "boost_mpl",
-        "boost_parameter",
-        "boost_preprocessor",
-        "boost_python"
-    ]
+    version = "1.70.0"
 
-    def package_info_additional(self):
+    def package_info(self):
+        super(BoostParameterPythonConan, self).package_info()
         self.info.options["boost_python"].python_version = "any"
